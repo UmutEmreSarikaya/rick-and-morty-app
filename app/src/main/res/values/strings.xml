@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Rick And Morty App</string>
+    <string name="logo_of_the_show">Logo of the show</string>
+    <string name="first_time_boolean_key">check-if-first-time</string>
+    <string name="welcome_text">Welcome!</string>
+    <string name="hello_text">Hello!</string>
 </resources>
