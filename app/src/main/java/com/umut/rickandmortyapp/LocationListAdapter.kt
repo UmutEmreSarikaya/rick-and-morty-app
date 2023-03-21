@@ -1,12 +1,13 @@
 package com.umut.rickandmortyapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.umut.rickandmortyapp.databinding.ItemLocationBinding
 
-class LocationListAdapter : RecyclerView.Adapter<LocationListAdapter.LocationListHolder>() {
+class LocationListAdapter(val onItemClickListener: (Int) -> Unit) : RecyclerView.Adapter<LocationListAdapter.LocationListHolder>() {
     private var locations: MutableList<Location?>? = mutableListOf()
     private var selectedPosition = 0
 
@@ -29,6 +30,8 @@ class LocationListAdapter : RecyclerView.Adapter<LocationListAdapter.LocationLis
             itemBinding.locationCardView.setOnClickListener {
                 selectedPosition = adapterPosition
                 notifyDataSetChanged()
+                Log.d("hello", selectedPosition.toString())
+                onItemClickListener(selectedPosition)
             }
         }
 

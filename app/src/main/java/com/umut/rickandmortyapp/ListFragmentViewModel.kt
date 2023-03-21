@@ -10,9 +10,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListFragmentViewModel @Inject constructor(
-    private val locationService: LocationService
+    private val locationService: LocationService,
+    private val characterService: CharacterService
 ) : ViewModel() {
     val locationLiveData = MutableLiveData<LocationResponse?>()
+    val charactersLiveData = MutableLiveData<MutableList<Character?>?>()
     private var locationPage = 1
 
     suspend fun getLocations(page: Int) {
@@ -21,6 +23,16 @@ class ListFragmentViewModel @Inject constructor(
 
             viewModelScope.launch(Dispatchers.Main) {
                 locationLiveData.value = response
+            }
+        }
+    }
+
+    suspend fun getCharacters(characters: List<Int>){
+        viewModelScope.launch(Dispatchers.IO){
+            val response = characterService.getCharacters(characters)
+
+            viewModelScope.launch(Dispatchers.Main) {
+                charactersLiveData.value = response
             }
         }
     }

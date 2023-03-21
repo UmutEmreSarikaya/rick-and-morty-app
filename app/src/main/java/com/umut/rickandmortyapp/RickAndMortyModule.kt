@@ -28,4 +28,9 @@ internal object RickAndMortyModule {
     fun provideLocationService(retrofit: Retrofit): LocationService {
         return retrofit.create(LocationService::class.java)
     }
+
+    @Provides
+    fun provideCharacterService(retrofit: Retrofit): CharacterService {
+        return retrofit.create(CharacterService::class.java)
+    }
 }
