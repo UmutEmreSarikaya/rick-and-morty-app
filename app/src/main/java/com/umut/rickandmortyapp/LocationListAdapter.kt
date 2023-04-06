@@ -1,6 +1,5 @@
 package com.umut.rickandmortyapp
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -30,7 +29,6 @@ class LocationListAdapter(val onItemClickListener: (Int) -> Unit) : RecyclerView
             itemBinding.locationCardView.setOnClickListener {
                 selectedPosition = adapterPosition
                 notifyDataSetChanged()
-                Log.d("hello", selectedPosition.toString())
                 onItemClickListener(selectedPosition)
             }
         }

@@ -36,18 +36,7 @@ class ListFragment : Fragment() {
         viewModel.locationLiveData.observe(viewLifecycleOwner){ locations ->
             locationListAdapter.setLocations(locations?.results)
 
-            for (item in viewModel.locationLiveData.value?.results?.get(0)?.residentsURL ?: mutableListOf()){
-                characterID = item?.split("/")?.last()?.toInt()
-                characterID?.let { characterIDList.add(it) }
-            }
-
-            lifecycleScope.launch {
-                viewModel.getCharacters(characterIDList)
-            }
-
-            viewModel.charactersLiveData.observe(viewLifecycleOwner){
-                characterListAdapter.setCharacters(it)
-            }
+            onItemClickListener(0)
         }
 
         return binding.root
@@ -62,7 +51,15 @@ class ListFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-            viewModel.getCharacters(characterIDList)
+            if(characterIDList.isEmpty()){
+                binding.infoText.visibility = View.VISIBLE
+                binding.characterRecyclerView.visibility = View.GONE
+            } else{
+                binding.infoText.visibility = View.GONE
+                binding.characterRecyclerView.visibility = View.VISIBLE
+                viewModel.getCharacters(characterIDList)
+            }
+
         }
 
         viewModel.charactersLiveData.observe(viewLifecycleOwner){

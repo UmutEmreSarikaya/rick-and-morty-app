@@ -6,4 +6,5 @@
     <string name="hello_text">Hello!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_character_photo">photo of a character</string>
+    <string name="no_residents_found">No residents found!</string>
 </resources>
