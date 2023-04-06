@@ -3,6 +3,7 @@ package com.umut.rickandmortyapp
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.umut.rickandmortyapp.databinding.ItemCharacterBinding
 
 class CharacterListAdapter: RecyclerView.Adapter<CharacterListAdapter.CharacterListHolder>() {
@@ -24,6 +25,7 @@ class CharacterListAdapter: RecyclerView.Adapter<CharacterListAdapter.CharacterL
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bindItems(character: Character?) {
             itemBinding.textCharacter.text = character?.name
+            Glide.with(itemView).load(character?.imageURL).into(itemBinding.imageCharacter)
 
         }
     }
