@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umut.rickandmortyapp.databinding.FragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,8 +17,8 @@ import kotlinx.coroutines.launch
 class ListFragment : Fragment() {
     private val viewModel: ListFragmentViewModel by viewModels()
     private lateinit var binding: FragmentListBinding
-    private val locationListAdapter = LocationListAdapter(::onItemClickListener)
-    private val characterListAdapter = CharacterListAdapter()
+    private val locationListAdapter = LocationListAdapter(::onLocationClick)
+    private val characterListAdapter = CharacterListAdapter(::goToDetailPage)
     private val characterIDList = mutableListOf<Int>()
     private var characterID: Int? = 0
 
@@ -36,13 +37,13 @@ class ListFragment : Fragment() {
         viewModel.locationLiveData.observe(viewLifecycleOwner){ locations ->
             locationListAdapter.setLocations(locations?.results)
 
-            onItemClickListener(0)
+            onLocationClick(0)
         }
 
         return binding.root
     }
 
-    private fun onItemClickListener(position: Int) {
+    private fun onLocationClick(position: Int) {
         characterIDList.clear()
 
         for (item in viewModel.locationLiveData.value?.results?.get(position)?.residentsURL ?: mutableListOf()){
@@ -65,6 +66,11 @@ class ListFragment : Fragment() {
         viewModel.charactersLiveData.observe(viewLifecycleOwner){
             characterListAdapter.setCharacters(it)
         }
+    }
+
+    private fun goToDetailPage(character: Character?) {
+        val action = ListFragmentDirections.actionListFragmentToCharacterDetailFragment(character)
+        findNavController().navigate(action)
     }
 
     private fun setupRecyclerViews(){

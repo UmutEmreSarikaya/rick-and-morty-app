@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CharacterDetailFragment">
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:contentDescription="@string/back_to_previous_page"
+        android:src="@drawable/baseline_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_character"
+        android:layout_width="275dp"
+        android:layout_height="275dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/image_character_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_text" />
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/status"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_character" />
+
+    <TextView
+        android:id="@+id/character_status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/status_text"
+        app:layout_constraintTop_toBottomOf="@+id/image_character" />
+
+    <TextView
+        android:id="@+id/species_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/specy"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_text" />
+
+    <TextView
+        android:id="@+id/character_species_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/species_text"
+        app:layout_constraintTop_toBottomOf="@+id/status_text" />
+
+    <TextView
+        android:id="@+id/gender_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/gender"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/species_text" />
+
+    <TextView
+        android:id="@+id/character_gender_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/gender_text"
+        app:layout_constraintTop_toBottomOf="@+id/species_text" />
+
+    <TextView
+        android:id="@+id/origin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/origin"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_text" />
+
+    <TextView
+        android:id="@+id/character_origin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/origin_text"
+        app:layout_constraintTop_toBottomOf="@+id/gender_text" />
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/location"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/origin_text" />
+
+    <TextView
+        android:id="@+id/character_location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/location_text"
+        app:layout_constraintTop_toBottomOf="@+id/origin_text" />
+
+    <TextView
+        android:id="@+id/episodes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/episodes"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_text" />
+
+    <TextView
+        android:id="@+id/character_episodes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/episodes_text"
+        app:layout_constraintTop_toBottomOf="@+id/location_text" />
+
+    <TextView
+        android:id="@+id/created_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/created_at_in_api"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/episodes_text" />
+
+    <TextView
+        android:id="@+id/character_created_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/created_date_text"
+        app:layout_constraintTop_toBottomOf="@+id/episodes_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
