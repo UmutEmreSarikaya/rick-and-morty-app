@@ -38,8 +38,6 @@ class CharacterDetailFragment : Fragment() {
             characterCreatedDateText.text = formatDate(character?.created)
 
             backButton.setOnClickListener {
-                /*val action = CharacterDetailFragmentDirections.actionCharacterDetailFragmentToListFragment()
-                findNavController().navigate(action)*/
                 findNavController().popBackStack()
             }
         }
