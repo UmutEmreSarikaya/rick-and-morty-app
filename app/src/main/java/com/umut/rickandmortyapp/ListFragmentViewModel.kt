@@ -17,7 +17,8 @@ class ListFragmentViewModel @Inject constructor(
     val charactersLiveData = MutableLiveData<MutableList<Character?>?>()
     private var firstTimeLoading = true
     private var locations: MutableList<Location?>? = mutableListOf()
-    private var locationPage = 1
+    private var currentPage = 1
+    private var totalPageNumber = 0
 
     suspend fun getLocations(page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -39,22 +40,29 @@ class ListFragmentViewModel @Inject constructor(
         }
     }
 
-    fun getLocationPage() = locationPage
-
     fun checkIfFirstTimeLoading() = firstTimeLoading
 
     fun loadedForFirstTime() {
         firstTimeLoading = false
     }
 
-    fun incrementLocationPage() = locationPage++
+    fun getCurrentPage() = currentPage
 
-    fun setMovieList(locations: MutableList<Location?>?){
+    fun incrementCurrentPage() = currentPage++
+
+    fun setLocationList(locations: MutableList<Location?>?){
         locations?.let { this.locations?.addAll(it) }
     }
 
-    fun getMovieList(): MutableList<Location?>?{
+    fun getLocationList(): MutableList<Location?>?{
         return this.locations
     }
 
+    fun getTotalPageNumber() = totalPageNumber
+
+    fun setTotalPageNumber(totalPageNumber: Int?){
+        if (totalPageNumber != null) {
+            this.totalPageNumber = totalPageNumber
+        }
+    }
 }

@@ -34,17 +34,18 @@ class ListFragment : Fragment() {
 
         if (viewModel.checkIfFirstTimeLoading()) {
             lifecycleScope.launch {
-                viewModel.getLocations(viewModel.getLocationPage())
+                viewModel.getLocations(viewModel.getCurrentPage())
             }
         }
 
         viewModel.locationLiveData.observe(viewLifecycleOwner) {
             if(isFragmentVisible){
-                viewModel.setMovieList(it?.results)
-                locationListAdapter.setLocations(viewModel.getMovieList())
+                viewModel.setLocationList(it?.results)
+                locationListAdapter.setLocations(viewModel.getLocationList())
             }
 
             if (viewModel.checkIfFirstTimeLoading()) {
+                viewModel.setTotalPageNumber(it?.information?.pages)
                 onLocationClick(0)
                 viewModel.loadedForFirstTime()
             }
@@ -53,10 +54,10 @@ class ListFragment : Fragment() {
         binding.locationRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
 
-                if (!recyclerView.canScrollHorizontally(1) && viewModel.getLocationPage() < 7) {
-                    viewModel.incrementLocationPage()
+                if (!recyclerView.canScrollHorizontally(1) && viewModel.getCurrentPage() < viewModel.getTotalPageNumber()) {
+                    viewModel.incrementCurrentPage()
                     lifecycleScope.launch {
-                        viewModel.getLocations(viewModel.getLocationPage())
+                        viewModel.getLocations(viewModel.getCurrentPage())
                     }
                 }
             }
@@ -80,7 +81,7 @@ class ListFragment : Fragment() {
         val characterIDList = mutableListOf<Int>()
         characterIDList.clear()
 
-        for (item in viewModel.getMovieList()?.get(position)?.residentsURL
+        for (item in viewModel.getLocationList()?.get(position)?.residentsURL
             ?: mutableListOf()) {
             characterID = item?.split("/")?.last()?.toInt()
             characterID?.let { characterIDList.add(it) }
