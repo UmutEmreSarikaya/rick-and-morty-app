@@ -67,9 +67,6 @@ class CharacterListAdapter(val goToDetailPage: (Character?) -> Unit) :
 
         fun bindItems(character: Character?) {
             itemBinding.textCharacter.text = character?.name
-            //val requestOptions = RequestOptions()
-            //requestOptions.placeholder(R.drawable.loading_buffering)
-            //requestOptions.error(R.drawable.baseline_question_mark_24)
             Glide.with(itemView).load(character?.imageURL).into(itemBinding.imageCharacter)
             when (character?.gender) {
                 "Male" -> {
@@ -99,9 +96,6 @@ class CharacterListAdapter(val goToDetailPage: (Character?) -> Unit) :
 
         fun bindItems(character: Character?) {
             itemBinding.textCharacter.text = character?.name
-            //val requestOptions = RequestOptions()
-            //requestOptions.placeholder(R.drawable.loading_buffering)
-            //requestOptions.error(R.drawable.baseline_question_mark_24)
             Glide.with(itemView).load(character?.imageURL).into(itemBinding.imageCharacter)
             when (character?.gender) {
                 "Male" -> {

@@ -10,6 +10,7 @@
         android:id="@+id/logo_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/logo_of_the_show"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,11 +19,19 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_recycler_view"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progress_bar"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_image" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -39,9 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_residents_found"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_recycler_view"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toBottomOf="@+id/location_recycler_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

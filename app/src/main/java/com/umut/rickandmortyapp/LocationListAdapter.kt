@@ -42,16 +42,18 @@ class LocationListAdapter(val onLocationClick: (Int) -> Unit) :
                         itemView.context,
                         R.color.teal_700
                     )
+
                 )
+                itemBinding.locationCardView.isClickable = false
             } else {
                 itemBinding.locationCardView.setCardBackgroundColor(
                     ContextCompat.getColor(
                         itemView.context,
-                        R.color.white
+                        R.color.inverse_text_color
                     )
                 )
+                itemBinding.locationCardView.isClickable = true
             }
-
         }
     }
 

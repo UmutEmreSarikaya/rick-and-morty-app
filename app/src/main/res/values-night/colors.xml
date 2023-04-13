@@ -10,6 +10,6 @@
     <color name="male_color">#303C88E6</color>
     <color name="female_color">#30F032FD</color>
     <color name="unknown_color">#30DA660E</color>
-    <color name="text_color">#FF000000</color>
-    <color name="inverse_text_color">#FFFFFFFF</color>
+    <color name="text_color">#FFFFFFFF</color>
+    <color name="inverse_text_color">#FF000000</color>
 </resources>
