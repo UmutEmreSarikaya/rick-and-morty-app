@@ -45,7 +45,7 @@
 
     <TextView
         android:id="@+id/status_text"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -69,7 +69,7 @@
 
     <TextView
         android:id="@+id/species_text"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
@@ -97,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:minWidth="110dp"
         android:text="@string/gender"
         android:textColor="@color/black"
         android:textSize="22sp"
@@ -117,7 +118,7 @@
 
     <TextView
         android:id="@+id/origin_text"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
@@ -132,8 +133,11 @@
         android:id="@+id/character_origin_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="200dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/origin_text"
@@ -145,6 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:minWidth="110dp"
         android:text="@string/location"
         android:textColor="@color/black"
         android:textSize="22sp"
@@ -156,8 +161,11 @@
         android:id="@+id/character_location_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="200dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/location_text"
@@ -169,6 +177,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:minWidth="110dp"
         android:text="@string/episodes"
         android:textColor="@color/black"
         android:textSize="22sp"
@@ -180,8 +189,11 @@
         android:id="@+id/character_episodes_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="200dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/episodes_text"
@@ -194,6 +206,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
+        android:maxWidth="110dp"
         android:text="@string/created_at_in_api"
         android:textColor="@color/black"
         android:textSize="22sp"
@@ -206,11 +219,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@id/created_date_text"
         app:layout_constraintStart_toEndOf="@id/created_date_text"
-        app:layout_constraintTop_toBottomOf="@+id/episodes_text" />
+        app:layout_constraintTop_toTopOf="@+id/created_date_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ data class Character(
     @SerializedName("location") val location: CharacterLocation?,
     @SerializedName("gender") val gender: String?,
     @SerializedName("image") val imageURL: String?,
-    @SerializedName("episodes") val episodes: List<String?>?,
+    @SerializedName("episode") val episodes: List<String?>?,
     @SerializedName("created") val created: String?
 ) : Parcelable
 

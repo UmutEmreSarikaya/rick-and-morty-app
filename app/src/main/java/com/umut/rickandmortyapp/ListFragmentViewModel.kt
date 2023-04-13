@@ -15,6 +15,8 @@ class ListFragmentViewModel @Inject constructor(
 ) : ViewModel() {
     val locationLiveData = MutableLiveData<LocationResponse?>()
     val charactersLiveData = MutableLiveData<MutableList<Character?>?>()
+    private var firstTimeLoading = true
+    private var locations: MutableList<Location?>? = mutableListOf()
     private var locationPage = 1
 
     suspend fun getLocations(page: Int) {
@@ -27,8 +29,8 @@ class ListFragmentViewModel @Inject constructor(
         }
     }
 
-    suspend fun getCharacters(characters: List<Int>){
-        viewModelScope.launch(Dispatchers.IO){
+    suspend fun getCharacters(characters: List<Int>) {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = characterService.getCharacters(characters)
 
             viewModelScope.launch(Dispatchers.Main) {
@@ -38,5 +40,21 @@ class ListFragmentViewModel @Inject constructor(
     }
 
     fun getLocationPage() = locationPage
+
+    fun checkIfFirstTimeLoading() = firstTimeLoading
+
+    fun loadedForFirstTime() {
+        firstTimeLoading = false
+    }
+
+    fun incrementLocationPage() = locationPage++
+
+    fun setMovieList(locations: MutableList<Location?>?){
+        locations?.let { this.locations?.addAll(it) }
+    }
+
+    fun getMovieList(): MutableList<Location?>?{
+        return this.locations
+    }
 
 }

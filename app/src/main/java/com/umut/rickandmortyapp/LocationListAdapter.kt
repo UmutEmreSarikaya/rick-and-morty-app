@@ -57,6 +57,6 @@ class LocationListAdapter(val onLocationClick: (Int) -> Unit) :
 
     fun setLocations(locations: MutableList<Location?>?) {
         this.locations = locations
-        notifyItemRangeChanged(0, locations?.size ?: 0)
+        notifyDataSetChanged()
     }
 }

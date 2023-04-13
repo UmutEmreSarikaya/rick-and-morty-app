@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.umut.rickandmortyapp.databinding.ItemCharacterEvenBinding
 import com.umut.rickandmortyapp.databinding.ItemCharacterOddBinding
 
-
 class CharacterListAdapter(val goToDetailPage: (Character?) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var characters: MutableList<Character?>? = mutableListOf()
